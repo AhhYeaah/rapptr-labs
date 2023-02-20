@@ -1,0 +1,78 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Logo } from '../Logo/Logo';
+import { NavbarButtonGroup } from './NavbarButtonGroup/NavbarButtonGroup';
+import { NavbarButtonGroupButton } from './NavbarButtonGroup/NavbarButtonGroupButton/NavbarButtonGroupButton';
+import { NavbarButtonGroupLink } from './NavbarButtonGroup/NavbarButtonGroupLink/NavbarButtonGroupLink';
+
+interface NavbarProps {
+  darkMode?: boolean;
+}
+
+export function Navbar({ darkMode = false }: NavbarProps) {
+  const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
+  const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
+
+  const oldOffset = useRef(window.scrollY);
+
+  //Scrolling
+  useEffect(() => {
+    function handleScrollingEvent() {
+      const isGoingDown = oldOffset.current - window.scrollY < 0;
+      const grayArea = window.scrollY < 400;
+
+      changeIsOnTopOfDocument(window.scrollY === 0);
+      changeIsUserScrollingDown(grayArea ? false : isGoingDown);
+
+      oldOffset.current = window.scrollY;
+    }
+
+    document.addEventListener('scroll', handleScrollingEvent);
+
+    return () => document.removeEventListener('scroll', handleScrollingEvent);
+  }, []);
+
+  function getNavBarHeight() {
+    if (isOnTopOfDocument) {
+      return 96;
+    }
+
+    if (isUserScrollingDown) {
+      return 0;
+    } else {
+      return 80;
+    }
+  }
+
+  return (
+    <header
+      className={
+        'flex-center overflow-hidden transition-all duration-200 sticky top-0 ' +
+        (darkMode ? 'bg-black text-white ' : ' bg-white text-black ') +
+        (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
+        (isUserScrollingDown ? ' invisible' : ' ')
+      }
+      style={{ height: getNavBarHeight() }}
+    >
+      <div className="container max-w-screen-lg p-4 mx-4 flex-between">
+        <div>
+          <Link to={'/'}>
+            <Logo lightMode={darkMode} classNames="h-[58px]" />
+          </Link>
+        </div>
+
+        <div>
+          <NavbarButtonGroup>
+            <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
+            <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
+            <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
+            <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
+            <NavbarButtonGroupLink>Academy</NavbarButtonGroupLink>
+            <NavbarButtonGroupButton darkMode={darkMode}>Contact Us</NavbarButtonGroupButton>
+          </NavbarButtonGroup>
+        </div>
+      </div>
+    </header>
+  );
+}

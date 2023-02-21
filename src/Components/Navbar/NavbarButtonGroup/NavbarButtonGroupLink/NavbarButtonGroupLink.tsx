@@ -18,9 +18,9 @@ export function NavbarButtonGroupLink({ children, to, colorIfActive }: NavbarBut
         to={to ?? '/' + children.toLowerCase()}
         className={({ isActive }) => {
           return isActive && colorIfActive
-            ? 'text-[#3ec7f4]'
+            ? 'text-rapptr-blue'
             : '' +
-                ' hover:text-[#3ec7f4] active:text-white focus-visible:text-[#3ec7f4] text-b transition-all duration-150';
+                ' hover:text-rapptr-blue active:text-white focus-visible:text-rapptr-blue text-b transition-all duration-150';
         }}
       >
         {capitalizeFirstLetter(children)}

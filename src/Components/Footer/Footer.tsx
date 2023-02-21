@@ -34,7 +34,7 @@ export function Footer() {
             </NavbarButtonGroup>
           </nav>
           <div className="col-span-3">
-            <h2 className="text-[#3ec7f4] mb-2 text-lg">Rapptr Labs</h2>
+            <h2 className="text-r mb-2 text-lg">Rapptr Labs</h2>
             <address className="mb-3 not-italic	 ">
               <p>
                 185 Hudson St, Suite 2340 <br />
@@ -58,12 +58,12 @@ export function Footer() {
         <div className="mt-10 ">
           <span className="text-[#a7a9ac] text-sm">
             © 2023 Rapptr Labs. All Rights Reserved |
-            <Link className="hover:text-[#3ec7f4] focus-visible:text-[#3ec7f4]" to="/policy">
+            <Link className="hover:text-rapptr-blue focus-visible:text-rapptr-blue" to="/policy">
               {' '}
               Privacy Policy{' '}
             </Link>
             |
-            <Link className="hover:text-[#3ec7f4] focus-visible:text-[#3ec7f4]" to="/terms-of-service">
+            <Link className="hover:text-rapptr-blue focus-visible:text-rapptr-blue" to="/terms-of-service">
               {' '}
               Terms of Service{' '}
             </Link>

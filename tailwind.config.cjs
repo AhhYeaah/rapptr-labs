@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'rapptr-black': '#0b131c'
+        'rapptr-black': '#0b131c',
+        'rapptr-blue': '#3ec7f4'
       }
     },
   },

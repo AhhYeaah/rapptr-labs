@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 interface NavbarButtonGroupLinkProps {
+  to?: string;
   children: string;
 }
 
@@ -9,11 +10,11 @@ function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-export function NavbarButtonGroupLink({ children }: NavbarButtonGroupLinkProps) {
+export function NavbarButtonGroupLink({ children, to = children.toLowerCase() }: NavbarButtonGroupLinkProps) {
   return (
     <li key={`NavbarButtonGroupLink - ${children}`} className="mx-4">
       <NavLink
-        to={'/' + children.toLowerCase()}
+        to={'/' + to}
         className={({ isActive }) => {
           return isActive
             ? 'text-[#3ec7f4]'

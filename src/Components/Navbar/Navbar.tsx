@@ -20,7 +20,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   useEffect(() => {
     function handleScrollingEvent() {
       const isGoingDown = oldOffset.current - window.scrollY < 0;
-      const grayArea = window.scrollY < 400;
+      const grayArea = window.scrollY < 500;
 
       changeIsOnTopOfDocument(window.scrollY === 0);
       changeIsUserScrollingDown(grayArea ? false : isGoingDown);
@@ -51,24 +51,29 @@ export function Navbar({ darkMode = false }: NavbarProps) {
         'flex-center overflow-hidden transition-all duration-200 sticky top-0 ' +
         (darkMode ? 'bg-black text-white ' : ' bg-white text-black ') +
         (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
-        (isUserScrollingDown ? ' invisible' : ' ')
+        (isUserScrollingDown ? ' invisible' : ' visible ')
       }
       style={{ height: getNavBarHeight() }}
     >
       <div className="container max-w-screen-lg p-4 mx-4 flex-between">
         <div>
-          <Link to={'/'}>
-            <Logo lightMode={darkMode} classNames="h-[58px]" />
-          </Link>
+          <a
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="cursor-pointer"
+          >
+            <Logo darkMode={darkMode} classNames="h-[58px]" />
+          </a>
         </div>
 
         <div>
           <NavbarButtonGroup>
+            <NavbarButtonGroupLink to="">Home</NavbarButtonGroupLink>
             <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
             <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
             <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
             <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
-            <NavbarButtonGroupLink>Academy</NavbarButtonGroupLink>
             <NavbarButtonGroupButton darkMode={darkMode}>Contact Us</NavbarButtonGroupButton>
           </NavbarButtonGroup>
         </div>

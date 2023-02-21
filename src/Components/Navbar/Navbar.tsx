@@ -46,17 +46,17 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   }
 
   return (
-    <header className="sticky top-0 h-24">
+    <header className="sticky grow-0 top-0 h-24">
       <div
         className={
           'flex-center overflow-hidden transition-all duration-200 ' +
-          (darkMode ? 'bg-black text-white ' : ' bg-white text-black ') +
+          (darkMode ? 'bg-rapptr-black text-white ' : ' bg-white text-rapptr-black ') +
           (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
           (isUserScrollingDown ? ' invisible' : ' visible ')
         }
         style={{ height: getNavBarHeight() }}
       >
-        <div className="container max-w-screen-lg p-4 mx-4 flex-between">
+        <div className="w-full max-w-screen-lg p-4 mx-4 flex-between">
           <div>
             <a
               onClick={() => {
@@ -68,16 +68,16 @@ export function Navbar({ darkMode = false }: NavbarProps) {
             </a>
           </div>
 
-          <div>
-            <NavbarButtonGroup>
-              <NavbarButtonGroupLink to="">Home</NavbarButtonGroupLink>
+          <nav>
+            <NavbarButtonGroup colorIfActive={true} className="items-center flex-row">
+              <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
               <NavbarButtonGroupButton darkMode={darkMode}>Contact Us</NavbarButtonGroupButton>
             </NavbarButtonGroup>
-          </div>
+          </nav>
         </div>
       </div>
     </header>

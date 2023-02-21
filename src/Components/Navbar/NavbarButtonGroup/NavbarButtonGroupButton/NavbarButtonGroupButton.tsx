@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LightModesButton } from '../../../Button/LightModesButton';
 
 interface NavbarButtonGroupButtonProps {
   darkMode?: boolean;
@@ -10,19 +11,16 @@ export function NavbarButtonGroupButton({ darkMode, children }: NavbarButtonGrou
   const navigate = useNavigate();
 
   return (
-    <li key={`NavbarButtonGroupLink - ${children}`} className="ml-4">
-      <button
-        className={
-          ' border rounded-md py-2 px-6 transition-transform ' +
-          ' hover:scale-110 focus-visible:scale-110 ' +
-          (darkMode ? ' border-white ' : ' border-black ')
-        }
+    <li key={`NavbarButtonGroupButton - ${children}`} className="ml-4 list-none	">
+      <LightModesButton
+        darkMode={darkMode}
         onClick={() => {
           navigate('/' + children.replace(' ', '-').toLowerCase());
         }}
+        className="hover:scale-110 focus-visible:scale-110"
       >
         {children}
-      </button>
+      </LightModesButton>
     </li>
   );
 }

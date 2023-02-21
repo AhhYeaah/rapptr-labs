@@ -8,10 +8,5 @@ interface WorkPageProps {
 }
 
 export function WorkPage({ value }: WorkPageProps) {
-  return (
-    <div className="h-[3000px] bg-slate-200">
-      <Navbar></Navbar>
-      <Outlet></Outlet>
-    </div>
-  );
+  return <div className="h-[3000px] bg-slate-200"></div>;
 }

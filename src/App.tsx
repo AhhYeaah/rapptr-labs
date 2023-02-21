@@ -1,15 +1,17 @@
 import React from 'react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/Home/HomePage';
-import { Page } from './pages/Page/Page';
-import { WorkPage } from './pages/Work/WorkPage';
+import { HomePage } from './pages/SimplePage/Home/HomePage';
+import { PrivacyPolicyPage } from './pages/SimplePage/PrivacyPolicy/PrivacyPolicyPage';
+import { SimplePage } from './pages/SimplePage/SimplePage';
+import { TextHeavyPages } from './pages/SimplePage/TextHeavyPages/TextHeavyPages';
+import { WorkPage } from './pages/SimplePage/Work/WorkPage';
 
 export function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Page />,
+      element: <SimplePage />,
       children: [
         {
           path: '/',
@@ -39,11 +41,19 @@ export function App() {
           path: '/contact-us',
           element: <WorkPage></WorkPage>,
         },
+        {
+          path: '/policy',
+          element: (
+            <TextHeavyPages title="Terms of Service">
+              <PrivacyPolicyPage />
+            </TextHeavyPages>
+          ),
+        },
       ],
     },
   ]);
   return (
-    <div className="h-screen">
+    <div>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

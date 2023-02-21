@@ -1,0 +1,27 @@
+.styled-title {
+  @apply text-3xl font-bold text-center mt-10;
+}
+
+.text-div {
+  counter-reset: section;
+}
+
+.styled-subtitle {
+  @apply text-2xl font-semibold mb-5 mt-10 list-decimal;
+}
+
+.styled-subtitle:before {
+  counter-increment: section;
+  content: '' counter(section) '. ';
+}
+
+.styled-paragraph {
+  @apply text-lg ml-5 mb-4 text-justify font-light;
+}
+
+.styled-listitem {
+  @apply ml-5 list-disc;
+}
+
+ul {
+}

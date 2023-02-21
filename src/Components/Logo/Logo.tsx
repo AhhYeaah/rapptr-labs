@@ -5,9 +5,9 @@ import darkLogoUrl from '../../assets/svg/logo.svg';
 
 interface LogoProps {
   classNames?: string;
-  lightMode?: boolean;
+  darkMode?: boolean;
 }
 
-export function Logo({ classNames, lightMode = false }: LogoProps) {
-  return <img src={lightMode ? lightLogoUrl : darkLogoUrl} alt="Rapptr Labs Logo" className={classNames} />;
+export function Logo({ classNames, darkMode = false }: LogoProps) {
+  return <img src={darkMode ? lightLogoUrl : darkLogoUrl} alt="Rapptr Labs Logo" className={classNames} />;
 }

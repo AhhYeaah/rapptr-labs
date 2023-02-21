@@ -1,10 +1,19 @@
-import React, { ReactNode } from 'react';
+import React, { Children, ReactNode } from 'react';
 
 interface NavbarButtonGroupProps {
-  value?: string;
-  children?: ReactNode[] | ReactNode;
+  className: string;
+  children: ReactNode[] | ReactNode;
+  colorIfActive: boolean;
 }
 
-export function NavbarButtonGroup({ children }: NavbarButtonGroupProps) {
-  return <ul className="flex flex-row flex-center">{children}</ul>;
+export function NavbarButtonGroup({ children, className, colorIfActive = true }: NavbarButtonGroupProps) {
+  return (
+    <ul className={'flex ' + className}>
+      {Children.map(children, (child: any) => {
+        return React.cloneElement(child, {
+          colorIfActive,
+        });
+      })}
+    </ul>
+  );
 }

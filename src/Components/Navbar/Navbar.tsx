@@ -20,9 +20,9 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   useEffect(() => {
     function handleScrollingEvent() {
       const isGoingDown = oldOffset.current - window.scrollY < 0;
-      const grayArea = window.scrollY < 500;
+      const grayArea = window.scrollY < 400;
 
-      changeIsOnTopOfDocument(window.scrollY === 0);
+      changeIsOnTopOfDocument(window.scrollY < 200);
       changeIsUserScrollingDown(grayArea ? false : isGoingDown);
 
       oldOffset.current = window.scrollY;
@@ -46,36 +46,38 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   }
 
   return (
-    <header
-      className={
-        'flex-center overflow-hidden transition-all duration-200 sticky top-0 ' +
-        (darkMode ? 'bg-black text-white ' : ' bg-white text-black ') +
-        (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
-        (isUserScrollingDown ? ' invisible' : ' visible ')
-      }
-      style={{ height: getNavBarHeight() }}
-    >
-      <div className="container max-w-screen-lg p-4 mx-4 flex-between">
-        <div>
-          <a
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="cursor-pointer"
-          >
-            <Logo darkMode={darkMode} classNames="h-[58px]" />
-          </a>
-        </div>
+    <header className="sticky top-0 h-24">
+      <div
+        className={
+          'flex-center overflow-hidden transition-all duration-200 ' +
+          (darkMode ? 'bg-black text-white ' : ' bg-white text-black ') +
+          (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
+          (isUserScrollingDown ? ' invisible' : ' visible ')
+        }
+        style={{ height: getNavBarHeight() }}
+      >
+        <div className="container max-w-screen-lg p-4 mx-4 flex-between">
+          <div>
+            <a
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="cursor-pointer"
+            >
+              <Logo darkMode={darkMode} classNames="h-[58px]" />
+            </a>
+          </div>
 
-        <div>
-          <NavbarButtonGroup>
-            <NavbarButtonGroupLink to="">Home</NavbarButtonGroupLink>
-            <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
-            <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
-            <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
-            <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
-            <NavbarButtonGroupButton darkMode={darkMode}>Contact Us</NavbarButtonGroupButton>
-          </NavbarButtonGroup>
+          <div>
+            <NavbarButtonGroup>
+              <NavbarButtonGroupLink to="">Home</NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
+              <NavbarButtonGroupButton darkMode={darkMode}>Contact Us</NavbarButtonGroupButton>
+            </NavbarButtonGroup>
+          </div>
         </div>
       </div>
     </header>

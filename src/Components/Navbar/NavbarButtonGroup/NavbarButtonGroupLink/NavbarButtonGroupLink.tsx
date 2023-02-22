@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 interface NavbarButtonGroupLinkProps {
   to?: string;
   colorIfActive?: boolean;
+  hasMargin?: boolean;
   children: string;
 }
 
@@ -11,9 +12,9 @@ function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-export function NavbarButtonGroupLink({ children, to, colorIfActive }: NavbarButtonGroupLinkProps) {
+export function NavbarButtonGroupLink({ children, to, colorIfActive, hasMargin = true }: NavbarButtonGroupLinkProps) {
   return (
-    <li key={`NavbarButtonGroupLink - ${children}`} className="mx-4">
+    <li key={`NavbarButtonGroupLink - ${children}`} className={hasMargin ? 'mx-4' : ''}>
       <NavLink
         to={to ?? '/' + children.toLowerCase()}
         className={({ isActive }) => {

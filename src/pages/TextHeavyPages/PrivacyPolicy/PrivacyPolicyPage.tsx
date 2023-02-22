@@ -120,7 +120,7 @@ export function PrivacyPolicyPage() {
       </p>
 
       <p className="styled-paragraph">
-        Our Privacy Policy was created with the help of the
+        Our Privacy Policy was created with the help of the{' '}
         <a href="https://www.termsfeed.com/blog/sample-privacy-policy-template/">TermsFeed Privacy Policy Template</a>.
       </p>
 

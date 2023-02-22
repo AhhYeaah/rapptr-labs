@@ -16,7 +16,7 @@ export function Footer() {
       <div className="py-14 w-auto lg:py-0 lg:w-full lg:max-w-screen-lg">
         <div className="w-auto grid grid-rows-3 grid-cols-1 gap-10 lg:w-full  lg:grid-rows-1 lg:grid-cols-10 lg:gap-0">
           <div className="flex-center lg:col-span-2 lg:block">
-            <Logo darkMode={true} classNames="h-[90px] lg:h-[58px]"></Logo>
+            <Logo darkMode={true} classNames="h-24 lg:h-14"></Logo>
           </div>
           <nav className="font-bold h-auto text-center lg:text-left lg:col-span-2 ">
             <NavbarButtonGroup colorIfActive={false} hasMargin={false} className="flex-col">
@@ -53,7 +53,7 @@ export function Footer() {
                 }}
                 darkMode={true}
                 className={
-                  'w-[150px] mx-auto hover:scale-105 focus-visible:scale-105 hover:bg-white focus-visible:bg-white hover:text-rapptr-black focus-visible:rapptr-black lg:w-full '
+                  'w-40 mx-auto hover:scale-105 focus-visible:scale-105 hover:bg-white focus-visible:bg-white hover:text-rapptr-black focus-visible:rapptr-black lg:w-full '
                 }
               >
                 Contact Us
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8  ">
-          <span className="text-[#a7a9ac] text-sm">
+          <span className="text-discreet text-sm">
             © 2023 Rapptr Labs. All Rights Reserved |
             <Link className="hover:text-rapptr-blue focus-visible:text-rapptr-blue" to="/policy">
               {' '}

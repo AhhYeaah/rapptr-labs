@@ -64,7 +64,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
               }}
               className="cursor-pointer"
             >
-              <Logo darkMode={darkMode} classNames="h-[58px]" />
+              <Logo darkMode={darkMode} classNames="h-14" />
             </a>
           </div>
 

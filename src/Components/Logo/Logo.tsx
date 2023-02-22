@@ -9,5 +9,11 @@ interface LogoProps {
 }
 
 export function Logo({ classNames, darkMode = false }: LogoProps) {
-  return <img src={darkMode ? lightLogoUrl : darkLogoUrl} alt="Rapptr Labs Logo" className={classNames} />;
+  return (
+    <img
+      src={darkMode ? lightLogoUrl : darkLogoUrl}
+      alt="Rapptr Labs Logo"
+      className={classNames ? classNames : 'h-14'}
+    />
+  );
 }

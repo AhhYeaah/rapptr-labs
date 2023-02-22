@@ -2,10 +2,11 @@ import React from 'react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HomePage } from './pages/SimplePage/Home/HomePage';
-import { PrivacyPolicyPage } from './pages/SimplePage/PrivacyPolicy/PrivacyPolicyPage';
+import { PrivacyPolicyPage } from './pages/SimplePage/TextHeavyPages/PrivacyPolicy/PrivacyPolicyPage';
 import { SimplePage } from './pages/SimplePage/SimplePage';
 import { TextHeavyPages } from './pages/SimplePage/TextHeavyPages/TextHeavyPages';
 import { WorkPage } from './pages/SimplePage/Work/WorkPage';
+import { TermsOfService } from './pages/SimplePage/TextHeavyPages/TermsOfService/TermsOfService';
 
 export function App() {
   const router = createBrowserRouter([
@@ -42,9 +43,17 @@ export function App() {
           element: <WorkPage></WorkPage>,
         },
         {
-          path: '/policy',
+          path: '/tos',
           element: (
             <TextHeavyPages title="Terms of Service">
+              <TermsOfService />
+            </TextHeavyPages>
+          ),
+        },
+        {
+          path: '/policy',
+          element: (
+            <TextHeavyPages title="Privacy Policy">
               <PrivacyPolicyPage />
             </TextHeavyPages>
           ),

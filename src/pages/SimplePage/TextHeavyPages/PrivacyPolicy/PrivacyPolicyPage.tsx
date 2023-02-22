@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
-import { useOutletContext } from 'react-router-dom';
+
+// I had to generate another privacy policy, the one on the site was too long to manually
+// format and too messy to correct using code, sorry :/
 
 export function PrivacyPolicyPage() {
   return (

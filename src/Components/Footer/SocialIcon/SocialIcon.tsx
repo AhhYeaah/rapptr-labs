@@ -10,8 +10,8 @@ interface SocialIconProps {
 
 export function SocialIcon({ icon, to }: SocialIconProps) {
   return (
-    <Link to={to}>
-      <FontAwesomeIcon icon={icon} className="text-2xl mr-3 hover:scale-110"></FontAwesomeIcon>
+    <Link to={to} className="mr-3 last:mr-0">
+      <FontAwesomeIcon icon={icon} className="text-2xl hover:scale-110"></FontAwesomeIcon>
     </Link>
   );
 }

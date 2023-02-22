@@ -1,13 +1,6 @@
-import {
-  faFacebook,
-  faLinkedin,
-  faSquareFacebook,
-  faSquareTwitter,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
-import { faSquare } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+
+import { faLinkedin, faSquareFacebook, faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { LightModesButton } from '../Button/LightModesButton';
 import { Logo } from '../Logo/Logo';
@@ -19,15 +12,14 @@ export function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="grow-0 h-96 bg-rapptr-black flex-center flex-col text-white">
-      <div className="max-w-screen-lg  w-full">
-        <div className="w-full grid grid-cols-10 pl-4">
-          <div className="col-span-2">
-            <Logo darkMode={true} classNames="h-[58px]"></Logo>
+    <footer className="bg-rapptr-black text-white grow-0 px-4 flex-center flex-col h-auto lg:h-96">
+      <div className="py-14 w-auto lg:py-0 lg:w-full lg:max-w-screen-lg">
+        <div className="w-auto grid grid-rows-3 grid-cols-1 gap-10 lg:w-full  lg:grid-rows-1 lg:grid-cols-10 lg:gap-0">
+          <div className="flex-center lg:col-span-2 lg:block">
+            <Logo darkMode={true} classNames="h-[90px] lg:h-[58px]"></Logo>
           </div>
-          <nav className="col-span-2">
-            <h2 className="font-bold mb-2 ml-2 text-lg">Pages</h2>
-            <NavbarButtonGroup colorIfActive={false} className="flex-col">
+          <nav className="font-bold h-auto text-center lg:text-left lg:col-span-2 ">
+            <NavbarButtonGroup colorIfActive={false} hasMargin={false} className="flex-col">
               <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
@@ -35,17 +27,17 @@ export function Footer() {
               <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
             </NavbarButtonGroup>
           </nav>
-          <nav className="col-span-3">
-            <h2 className="font-bold mb-2 ml-2 text-lg">Services</h2>
-            <NavbarButtonGroup colorIfActive={false} className="flex-col">
+          <nav className="text-center lg:text-left lg:col-span-3">
+            <h2 className="font-bold mb-2 text-lg">Services</h2>
+            <NavbarButtonGroup colorIfActive={false} hasMargin={false} className="flex-col">
               <NavbarButtonGroupLink to="">App Design</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>App Development</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Android App Development</NavbarButtonGroupLink>
             </NavbarButtonGroup>
           </nav>
-          <div className="col-span-3">
+          <div className=" text-center lg:text-left lg:col-span-3">
             <div>
-              <h2 className="text-rapptr-blue mb-2 text-lg">Rapptr Labs</h2>
+              <h2 className="mb-2 text-rapptr-blue text-lg">Rapptr Labs</h2>
               <address className="mb-3 not-italic	 ">
                 <p>
                   185 Hudson St, Suite 2340 <br />
@@ -53,26 +45,28 @@ export function Footer() {
                   (212) 913 9626
                 </p>
               </address>
+            </div>
+            <div className="flex flex-col-reverse lg:flex-col">
               <LightModesButton
                 onClick={() => {
                   navigate('/contact-us');
                 }}
                 darkMode={true}
                 className={
-                  'w-full hover:scale-105 focus-visible:scale-105 hover:bg-white focus-visible:bg-white hover:text-rapptr-black focus-visible:rapptr-black'
+                  'w-[150px] mx-auto hover:scale-105 focus-visible:scale-105 hover:bg-white focus-visible:bg-white hover:text-rapptr-black focus-visible:rapptr-black lg:w-full '
                 }
               >
                 Contact Us
               </LightModesButton>
-            </div>
-            <div className="text-white mt-4">
-              <SocialIcon icon={faLinkedin} to="https://www.linkedin.com/company/rapptr"></SocialIcon>
-              <SocialIcon icon={faSquareFacebook} to="https://www.facebook.com/rapptrlabs"></SocialIcon>
-              <SocialIcon icon={faSquareTwitter} to="https://twitter.com/rapptrlabs"></SocialIcon>
+              <div className="text-white mb-6 lg:mb-6 lg:mt-4">
+                <SocialIcon icon={faLinkedin} to="https://www.linkedin.com/company/rapptr"></SocialIcon>
+                <SocialIcon icon={faSquareFacebook} to="https://www.facebook.com/rapptrlabs"></SocialIcon>
+                <SocialIcon icon={faSquareTwitter} to="https://twitter.com/rapptrlabs"></SocialIcon>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-10 ">
+        <div className="mt-8  ">
           <span className="text-[#a7a9ac] text-sm">
             © 2023 Rapptr Labs. All Rights Reserved |
             <Link className="hover:text-rapptr-blue focus-visible:text-rapptr-blue" to="/policy">

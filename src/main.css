@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 .flex-center {
-    @apply flex justify-center items-center
+  @apply flex justify-center items-center;
 }
 
 .flex-between {
-    @apply flex justify-between items-center
+  @apply flex justify-between items-center;
+}
+
+p > a {
+  color: #3ec7f4;
 }

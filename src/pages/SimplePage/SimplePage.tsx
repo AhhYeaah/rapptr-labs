@@ -10,7 +10,9 @@ export function SimplePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar darkMode={isNavBarDark}></Navbar>
-      <Outlet context={changeIsNavbarDark}></Outlet>
+      <main className="grow">
+        <Outlet context={changeIsNavbarDark}></Outlet>
+      </main>
       <Footer></Footer>
     </div>
   );

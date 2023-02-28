@@ -10,6 +10,12 @@ interface NavbarProps {
   darkMode?: boolean;
 }
 
+export enum NavbarSizesInPixels {
+  CLOSED = 0,
+  SEMI_OPEN = 86,
+  OPEN = 102,
+}
+
 export function Navbar({ darkMode = false }: NavbarProps) {
   const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
   const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
@@ -35,18 +41,18 @@ export function Navbar({ darkMode = false }: NavbarProps) {
 
   function getNavBarHeight() {
     if (isOnTopOfDocument) {
-      return 96;
+      return NavbarSizesInPixels.OPEN;
     }
 
     if (isUserScrollingDown) {
-      return 0;
+      return NavbarSizesInPixels.CLOSED;
     } else {
-      return 80;
+      return NavbarSizesInPixels.SEMI_OPEN;
     }
   }
 
   return (
-    <header className="sticky grow-0 top-0 h-24">
+    <header className="sticky z-10 grow-0 top-0 " style={{ height: NavbarSizesInPixels.OPEN }}>
       <div
         className={
           'flex-center overflow-hidden transition-all duration-200 ' +

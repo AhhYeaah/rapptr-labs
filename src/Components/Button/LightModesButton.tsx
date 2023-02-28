@@ -18,7 +18,7 @@ export function LightModesButton({
 }: LightModesButtonProps) {
   return (
     <Button
-      disabled=""
+      disabled={disabled}
       className={
         ' border rounded-md transition-all ' +
         (darkMode ? ' border-white bg-rapptr-black ' : ' border-rapptr-black bg-white ') +

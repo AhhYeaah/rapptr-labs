@@ -9,7 +9,7 @@ interface TextHeavyPagesProps {
 
 export function TextHeavyPages({ title, children }: TextHeavyPagesProps) {
   document.title = 'Rapptr Labs - ' + title;
-
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   return (
     <div className="flex items-center flex-col grow">
       <PageTitle>{title}</PageTitle>

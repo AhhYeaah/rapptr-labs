@@ -4,13 +4,21 @@ import { Button } from './Button';
 interface LightModesButtonProps {
   darkMode?: boolean;
   className?: string;
+  disabled?: boolean;
   onClick: () => void;
   children?: ReactNode[] | ReactNode;
 }
 
-export function LightModesButton({ children, className, onClick, darkMode = true }: LightModesButtonProps) {
+export function LightModesButton({
+  children,
+  className,
+  onClick,
+  darkMode = true,
+  disabled = false,
+}: LightModesButtonProps) {
   return (
     <Button
+      disabled=""
       className={
         ' border rounded-md transition-all ' +
         (darkMode ? ' border-white bg-rapptr-black ' : ' border-rapptr-black bg-white ') +

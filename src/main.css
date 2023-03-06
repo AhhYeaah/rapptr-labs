@@ -16,7 +16,7 @@ p > a {
   color: #3ec7f4;
 }
 
-/* User selection is now a better blue */
+/* User selected text is now a better blue */
 ::selection {
   background-color: #cbeafb;
 }

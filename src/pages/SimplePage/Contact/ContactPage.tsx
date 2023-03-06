@@ -32,7 +32,7 @@ export function ContactPage() {
               (212) 913 9626
             </p>
           </address>
-          <div className="text-white mb-6 lg:mb-6 lg:mt-4">
+          <div className="text-rapptr-blue mb-6 lg:mb-6 lg:mt-4">
             <SocialIcon icon={faLinkedin} to="https://www.linkedin.com/company/rapptr"></SocialIcon>
             <SocialIcon icon={faSquareFacebook} to="https://www.facebook.com/rapptrlabs"></SocialIcon>
             <SocialIcon icon={faSquareTwitter} to="https://twitter.com/rapptrlabs"></SocialIcon>

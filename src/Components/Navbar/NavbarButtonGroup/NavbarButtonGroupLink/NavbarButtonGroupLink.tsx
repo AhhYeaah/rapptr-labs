@@ -1,15 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { capitalizeFirstLetter } from '../../../../utils/Text';
 
 interface NavbarButtonGroupLinkProps {
   to?: string;
   colorIfActive?: boolean;
   hasMargin?: boolean;
   children: string;
-}
-
-function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
 export function NavbarButtonGroupLink({ children, to, colorIfActive, hasMargin = true }: NavbarButtonGroupLinkProps) {

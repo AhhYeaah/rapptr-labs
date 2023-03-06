@@ -13,12 +13,14 @@ export function ContactForm() {
         <ContactFormInput inputOptions={{ name: 'phone' }} type="tel"></ContactFormInput>
         <ContactFormInput inputOptions={{ name: 'company' }} type="text"></ContactFormInput>
         <ContactFormInput
+          required={false}
           inputOptions={{ name: 'bussinessPhase', label: 'Bussiness Phase' }}
           type="select"
         ></ContactFormInput>
 
         <div>
           <ContactFormInput
+            required={false}
             inputOptions={{ name: 'message', label: 'Let us help!' }}
             type="textarea"
           ></ContactFormInput>

@@ -7,6 +7,7 @@ import { ContactFormTextInput } from './ContactFormTextInput/ContactFormTextInpu
 
 interface ContactFormInputProps {
   type: HTMLInputTypeAttribute | 'textarea' | 'select';
+  required?: boolean;
   inputOptions: {
     name: string;
     label?: string;
@@ -18,6 +19,7 @@ interface ContactFormInputProps {
 export function ContactFormInput({
   type,
   inputOptions: { name, label = capitalizeFirstLetter(name), className, placeholder },
+  required = true,
 }: ContactFormInputProps) {
   const id = useId();
 
@@ -25,10 +27,11 @@ export function ContactFormInput({
     <div className="flex flex-col">
       <label className="mb-2 text-sm" htmlFor={id}>
         {label}
+        {required && <span className="text-red-500">*</span>}
       </label>
       {(() => {
         if (type === 'select') return <ContactFormSelectInput name={name} id={id} />;
-        if (type === 'tel') return <ContactFormPhoneInput></ContactFormPhoneInput>;
+        if (type === 'tel') return <ContactFormPhoneInput name={name} id={id} />;
         if (type === 'textarea') return <ContactFormTextareaInput name={name} id={id} placeholder={placeholder} />;
         return (
           <ContactFormTextInput

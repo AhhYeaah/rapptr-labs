@@ -1,0 +1,6 @@
+:root {
+  --PhoneInput-color--focus: black;
+  --PhoneInputCountrySelectArrow-width: 0.45em;
+  --PhoneInputCountrySelect-marginRight: 0.5em;
+  --PhoneInputCountryFlag-borderColor: rgba(0, 0, 0, 0);
+}

@@ -4,22 +4,19 @@ interface ContactFormTextareaInputProps {
   name: string;
   placeholder?: string;
   id: string;
+  required: boolean;
+  register: any;
 }
 
-export function ContactFormTextareaInput({
-  name,
-  id,
-  placeholder = 'Tell us about your project',
-}: ContactFormTextareaInputProps) {
+export function ContactFormTextareaInput(props: ContactFormTextareaInputProps) {
   return (
     <div>
       <textarea
         className="border border-rapptr-blue outline-none focus:border-[#2984a2] w-full p-3 flex align-center rounded-sm "
-        name={name}
-        id={id}
         cols={30}
         rows={5}
-        placeholder={placeholder}
+        {...props}
+        {...props.register}
       ></textarea>
     </div>
   );

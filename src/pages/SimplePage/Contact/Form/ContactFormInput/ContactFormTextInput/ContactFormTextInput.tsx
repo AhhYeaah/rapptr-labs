@@ -2,31 +2,23 @@ import React, { HTMLInputTypeAttribute, useId } from 'react';
 import { capitalizeFirstLetter } from '../../../../../../utils/Text';
 
 interface ContactFormTextInput {
-  name: string;
   id: string;
   type: HTMLInputTypeAttribute;
+  name: string;
+  register: (name: string, options: any) => any;
+  required: boolean;
   placeholder?: string;
-  className?: string;
 }
 
-export function ContactFormTextInput({
-  name,
-  type,
-  id,
-  placeholder = capitalizeFirstLetter(name),
-  className,
-}: ContactFormTextInput) {
+export function ContactFormTextInput({ required, ...props }: ContactFormTextInput) {
   return (
     <div>
       <input
         className={
-          'border border-rapptr-blue outline-none focus:border-[#2984a2] w-full h-10 px-3 flex align-center rounded-sm ' +
-          className
+          'border border-rapptr-blue outline-none focus:border-[#2984a2] w-full h-10 px-3 flex align-center rounded-sm '
         }
-        type={type}
-        name={name}
-        id={id}
-        placeholder={placeholder}
+        {...props}
+        {...props.register}
       />
     </div>
   );

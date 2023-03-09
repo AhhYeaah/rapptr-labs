@@ -29,10 +29,10 @@ export function ContactPage() {
             <p className="text-lg font-light">
               185 Hudson St, Suite 2340 <br />
               Jersey City, NJ 07311 <br />
-              (212) 913 9626
+              <a href="tel:(212) 913 9626">(212) 913 9626</a>
             </p>
           </address>
-          <div className="text-rapptr-blue mb-6 lg:mb-6 lg:mt-4">
+          <div className="text-[#26a6ed] mb-6 lg:mb-6 lg:mt-4">
             <SocialIcon icon={faLinkedin} to="https://www.linkedin.com/company/rapptr"></SocialIcon>
             <SocialIcon icon={faSquareFacebook} to="https://www.facebook.com/rapptrlabs"></SocialIcon>
             <SocialIcon icon={faSquareTwitter} to="https://twitter.com/rapptrlabs"></SocialIcon>

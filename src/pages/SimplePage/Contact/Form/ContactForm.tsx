@@ -20,9 +20,7 @@ export function ContactForm() {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm({});
-
-  console.log(errors);
+  } = useForm();
 
   return (
     <div

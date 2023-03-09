@@ -52,10 +52,13 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   }
 
   return (
-    <header className="sticky z-10 grow-0 top-0 " style={{ height: NavbarSizesInPixels.OPEN }}>
+    <header
+      className="sticky grow-0 top-0"
+      style={{ height: NavbarSizesInPixels.OPEN, visibility: getNavBarHeight() === 0 ? 'hidden' : 'visible' }}
+    >
       <div
         className={
-          'flex-center overflow-hidden transition-all duration-200 ' +
+          'flex-center overflow-hidden transition-all duration-300 ' +
           (darkMode ? 'bg-rapptr-black text-white ' : ' bg-white text-rapptr-black ') +
           (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
           (isUserScrollingDown ? ' invisible' : ' visible ')

@@ -53,7 +53,7 @@ export function Footer() {
                 }}
                 darkMode={true}
                 className={
-                  'w-40 mx-auto hover:scale-105 focus-visible:scale-105 hover:bg-white focus-visible:bg-white hover:text-rapptr-black focus-visible:rapptr-black lg:w-full '
+                  'w-40 mx-auto hover:scale-105 focus-visible:scale-105 hover:bg-white focus-visible:bg-white hover:text-rapptr-black focus-visible:text-rapptr-black lg:w-full '
                 }
               >
                 Contact Us

@@ -9,8 +9,14 @@ export function ContactPage() {
   return (
     <div className="flex-center flex-col">
       <PageTitle>Contact Us</PageTitle>
-      <div className="max-w-screen-lg w-full mx-10 my-20 grid grid-cols-6 gap-5 text-[#053148]">
-        <div className="col-span-4 m">
+      <div
+        className="max-w-screen-lg w-full
+        lg:mx-10 lg:px-0 px-20 my-20
+        grid lg:grid-rows-1 
+        grid-cols-1 lg:grid-cols-6
+        gap-16 text-[#053148]"
+      >
+        <div className="lg:col-span-4">
           <div className="mb-10">
             <h1 className="text-3xl font-bold mb-3">Let&apos;s Talk</h1>
             <p className="font-light text-xl ">
@@ -23,9 +29,9 @@ export function ContactPage() {
             <ContactForm></ContactForm>
           </div>
         </div>
-        <div className="col-span-2">
+        <div className="lg:col-span-2 mx-auto lg:text-left text-center">
           <h2 className="mb-2 text-2xl font-bold">Rapptr Labs</h2>
-          <address className="mb-3 not-italic	 ">
+          <address className="mb-3 not-italic">
             <p className="text-lg font-light">
               185 Hudson St, Suite 2340 <br />
               Jersey City, NJ 07311 <br />

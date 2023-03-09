@@ -19,29 +19,35 @@ interface ContactFormInputProps {
     required?: boolean;
   };
   registration: {
-    register: any;
+    register?: any;
     options?: RegisterOptions;
+    control?: any;
   };
+
+  errors: any;
 }
 
 export function ContactFormInput({
   identification: { name },
   appearence: { placeholder, label = capitalizeFirstLetter(name) },
   options: { type, required = false },
-  registration: { register, options },
+  registration: { register, options, control },
+  errors,
 }: ContactFormInputProps) {
   const id = useId();
 
+  const hasErrors = !!errors[name];
+
   function getGeneralInputInfo(phone = false) {
     return {
-      required,
       name,
       id,
       label,
       placeholder: placeholder ?? label,
+      hasError: !!errors[name],
       register: phone
-        ? register
-        : register(name, { ...options, required: { required, message: 'This field is required' } }),
+        ? control
+        : register(name, { ...options, required: required ? 'This field is required' : undefined }),
     };
   }
 
@@ -53,10 +59,15 @@ export function ContactFormInput({
       </label>
       {(() => {
         if (type === 'select') return <ContactFormSelectInput {...getGeneralInputInfo()} />;
-        if (type === 'tel') return <ContactFormPhoneInput {...getGeneralInputInfo(true)} />;
+        if (type === 'tel') return <ContactFormPhoneInput {...getGeneralInputInfo(true)} control={control} />;
         if (type === 'textarea') return <ContactFormTextareaInput {...getGeneralInputInfo()} />;
         return <ContactFormTextInput {...getGeneralInputInfo()} type={type} />;
       })()}
+      {hasErrors && (
+        <div className="text-red-500 text-sm">
+          <p>{errors[name].message}</p>
+        </div>
+      )}
     </div>
   );
 }

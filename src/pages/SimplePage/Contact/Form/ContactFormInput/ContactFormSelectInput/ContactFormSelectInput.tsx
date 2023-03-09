@@ -11,11 +11,11 @@ export enum BussinessPhaseValues {
 interface ContactFormSelectInput {
   name: string;
   id: string;
-  required?: boolean;
   register: any;
+  hasError: boolean;
 }
 
-export function ContactFormSelectInput(props: ContactFormSelectInput) {
+export function ContactFormSelectInput({ hasError, ...props }: ContactFormSelectInput) {
   const [pristine, changePristine] = useState(true);
 
   return (
@@ -26,7 +26,10 @@ export function ContactFormSelectInput(props: ContactFormSelectInput) {
       ></FontAwesomeIcon>
       <select
         className={
-          'border bg-transparent border-rapptr-blue outline-none focus:border-[#2984a2] w-full h-10 px-3 appearance-none flex align-center rounded-sm ' +
+          `border bg-transparent focus:outline-none h-10 focus:ring-1 w-full px-3 appearance-none flex align-center rounded-sm ` +
+          (hasError
+            ? 'border-red-500 text-red-600 focus:border-red-500 focus:ring-red-500 '
+            : 'border-rapptr-blue focus:ring-[#2984a2] focus:border-[#2984a2] ') +
           (pristine ? 'text-gray-400 ' : '')
         }
         {...props}

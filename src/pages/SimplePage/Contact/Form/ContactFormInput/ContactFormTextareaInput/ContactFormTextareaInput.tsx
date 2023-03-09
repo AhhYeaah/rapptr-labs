@@ -4,15 +4,20 @@ interface ContactFormTextareaInputProps {
   name: string;
   placeholder?: string;
   id: string;
-  required: boolean;
+  hasError: boolean;
   register: any;
 }
 
-export function ContactFormTextareaInput(props: ContactFormTextareaInputProps) {
+export function ContactFormTextareaInput({ hasError, ...props }: ContactFormTextareaInputProps) {
   return (
     <div>
       <textarea
-        className="border border-rapptr-blue outline-none focus:border-[#2984a2] w-full p-3 flex align-center rounded-sm "
+        className={
+          `border focus:outline-none  focus:ring-1 w-full p-3 flex align-center rounded-sm ` +
+          (hasError
+            ? 'border-red-500 text-red-600 focus:border-red-500 focus:ring-red-500'
+            : 'border-rapptr-blue focus:ring-[#2984a2] focus:border-[#2984a2]')
+        }
         cols={30}
         rows={5}
         {...props}

@@ -53,7 +53,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
 
   return (
     <header
-      className="sticky grow-0 top-0"
+      className="sticky z-30 grow-0 top-0"
       style={{ height: NavbarSizesInPixels.OPEN, visibility: getNavBarHeight() === 0 ? 'hidden' : 'visible' }}
     >
       <div

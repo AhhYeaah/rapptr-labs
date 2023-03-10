@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Logo } from '../Logo/Logo';
 import { NavbarButtonGroup } from './NavbarButtonGroup/NavbarButtonGroup';
@@ -73,14 +74,9 @@ export function Navbar({ darkMode = false }: NavbarProps) {
       >
         <div className="w-full max-w-screen-lg p-4 mx-4 flex-between">
           <div>
-            <a
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="cursor-pointer"
-            >
+            <Link to={'/'} className="cursor-pointer">
               <Logo darkMode={darkMode} classNames="h-14" />
-            </a>
+            </Link>
           </div>
 
           <nav>

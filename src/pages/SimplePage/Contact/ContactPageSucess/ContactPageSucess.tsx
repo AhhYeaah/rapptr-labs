@@ -220,8 +220,8 @@ export function ContactPageSucess() {
           Thank you for reaching out!
         </h1>
         <p className=" text-xl lg:text-3xl ">
-          Our team will review and respond to your message within
-          24hours. <br />
+          Our team will review and respond to your message within 24
+          hours. <br />
           We appreciate your patience and look foward to connecting
           with you soon! 👋
         </p>

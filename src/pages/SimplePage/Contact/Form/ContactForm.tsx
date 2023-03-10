@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useForm, RegisterOptions } from 'react-hook-form';
 import { Button } from '../../../../Components/Button/Button';
+import { ContactPageSucess } from '../ContactPageSucess/ContactPageSucess';
 import { ContactFormInput } from './ContactFormInput/ContactFormInput';
 import { BussinessPhaseValues } from './ContactFormInput/ContactFormSelectInput/ContactFormSelectInput';
 
@@ -15,6 +17,8 @@ interface FormInput {
 }
 
 export function ContactForm() {
+  const [completed, complete] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -26,7 +30,11 @@ export function ContactForm() {
     <div
       className="flex flex-row"
       onSubmit={handleSubmit((data) => {
-        console.log(data);
+        complete(true);
+        createPortal(
+          <ContactPageSucess></ContactPageSucess>,
+          document.body
+        );
       })}
     >
       <form className="w-full grid gap-5">
@@ -105,18 +113,25 @@ export function ContactForm() {
             identification={{
               name: 'message',
             }}
-            appearence={{ label: 'Let us help!', placeholder: 'Tell us about your project' }}
+            appearence={{
+              label: 'Let us help!',
+              placeholder: 'Tell us about your project',
+            }}
             options={{ type: 'textarea' }}
             registration={{ register }}
             errors={errors}
           />
         </div>
         <div className="text-left">
-          <Button className="bg-[#053148] text-white enabled:hover:bg-[#3D5F79] enabled:hover:scale-105 transition-all rounded-lg w-44">
+          <Button
+            className="bg-[#053148] text-white enabled:hover:bg-[#3D5F79] enabled:hover:scale-105 transition-all rounded-lg w-44"
+            onClick={}
+          >
             Submit
           </Button>
         </div>
       </form>
+      {completed && <ContactPageSucess></ContactPageSucess>}
     </div>
   );
 }

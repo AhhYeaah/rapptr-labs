@@ -1,9 +1,11 @@
 import 'react-phone-number-input/style.css';
 import './ContactFormPhoneInput.css';
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
-import React, { useEffect, useState, createElement } from 'react';
+import PhoneInput, {
+  isValidPhoneNumber,
+} from 'react-phone-number-input';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Controller, useController } from 'react-hook-form';
+import { useController } from 'react-hook-form';
 
 interface ContactFormPhoneInput {
   name: string;
@@ -14,7 +16,11 @@ interface ContactFormPhoneInput {
   placeholder?: string;
 }
 
-export function ContactFormPhoneInput({ hasError, register, control, ...props }: ContactFormPhoneInput) {
+export function ContactFormPhoneInput({
+  hasError,
+  control,
+  ...props
+}: ContactFormPhoneInput) {
   const [countryCode, changeCountryCode] = useState();
 
   useEffect(() => {
@@ -38,7 +44,8 @@ export function ContactFormPhoneInput({ hasError, register, control, ...props }:
     control,
     rules: {
       required: 'This field is required',
-      validate: (value) => isValidPhoneNumber(value) || 'Invalid Phone Number length',
+      validate: (value) =>
+        isValidPhoneNumber(value) || 'Invalid Phone Number length',
     },
   });
 

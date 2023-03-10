@@ -1,9 +1,7 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React from 'react';
 
 interface HexagonProps {
-  value?: string;
   className: string;
-  children?: ReactNode[] | ReactNode;
 }
 
 export function Hexagon({ className }: HexagonProps) {

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import lightLogoUrl from '../../assets/svg/white-logo.svg';
 import darkLogoUrl from '../../assets/svg/logo.svg';

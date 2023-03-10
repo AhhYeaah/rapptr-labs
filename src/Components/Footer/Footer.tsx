@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { faLinkedin, faSquareFacebook, faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
+import {
+  faLinkedin,
+  faSquareFacebook,
+  faSquareTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { LightModesButton } from '../Button/LightModesButton';
 import { Logo } from '../Logo/Logo';
@@ -19,8 +23,14 @@ export function Footer() {
             <Logo darkMode={true} classNames="h-24 lg:h-14"></Logo>
           </div>
           <nav className="font-bold h-auto text-center lg:text-left lg:col-span-2 ">
-            <NavbarButtonGroup colorIfActive={false} hasMargin={false} className="flex-col">
-              <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
+            <NavbarButtonGroup
+              colorIfActive={false}
+              hasMargin={false}
+              className="flex-col"
+            >
+              <NavbarButtonGroupLink to="/">
+                Home
+              </NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
@@ -29,15 +39,27 @@ export function Footer() {
           </nav>
           <nav className="text-center lg:text-left lg:col-span-3">
             <h2 className="font-bold mb-2 text-lg">Services</h2>
-            <NavbarButtonGroup colorIfActive={false} hasMargin={false} className="flex-col">
-              <NavbarButtonGroupLink to="">App Design</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>App Development</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Android App Development</NavbarButtonGroupLink>
+            <NavbarButtonGroup
+              colorIfActive={false}
+              hasMargin={false}
+              className="flex-col"
+            >
+              <NavbarButtonGroupLink to="">
+                App Design
+              </NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>
+                App Development
+              </NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>
+                Android App Development
+              </NavbarButtonGroupLink>
             </NavbarButtonGroup>
           </nav>
           <div className=" text-center lg:text-left lg:col-span-3">
             <div>
-              <h2 className="mb-2 text-rapptr-blue text-lg">Rapptr Labs</h2>
+              <h2 className="mb-2 text-rapptr-blue text-lg">
+                Rapptr Labs
+              </h2>
               <address className="mb-3 not-italic	 ">
                 <p>
                   185 Hudson St, Suite 2340 <br />
@@ -59,9 +81,18 @@ export function Footer() {
                 Contact Us
               </LightModesButton>
               <div className="text-white mb-6 lg:mb-6 lg:mt-4">
-                <SocialIcon icon={faLinkedin} to="https://www.linkedin.com/company/rapptr"></SocialIcon>
-                <SocialIcon icon={faSquareFacebook} to="https://www.facebook.com/rapptrlabs"></SocialIcon>
-                <SocialIcon icon={faSquareTwitter} to="https://twitter.com/rapptrlabs"></SocialIcon>
+                <SocialIcon
+                  icon={faLinkedin}
+                  to="https://www.linkedin.com/company/rapptr"
+                ></SocialIcon>
+                <SocialIcon
+                  icon={faSquareFacebook}
+                  to="https://www.facebook.com/rapptrlabs"
+                ></SocialIcon>
+                <SocialIcon
+                  icon={faSquareTwitter}
+                  to="https://twitter.com/rapptrlabs"
+                ></SocialIcon>
               </div>
             </div>
           </div>
@@ -69,12 +100,18 @@ export function Footer() {
         <div className="mt-8  ">
           <span className="text-discreet text-sm">
             © 2023 Rapptr Labs. All Rights Reserved |
-            <Link className="hover:text-rapptr-blue focus-visible:text-rapptr-blue" to="/policy">
+            <Link
+              className="hover:text-rapptr-blue focus-visible:text-rapptr-blue"
+              to="/policy"
+            >
               {' '}
               Privacy Policy{' '}
             </Link>
             |
-            <Link className="hover:text-rapptr-blue focus-visible:text-rapptr-blue" to="/tos">
+            <Link
+              className="hover:text-rapptr-blue focus-visible:text-rapptr-blue"
+              to="/tos"
+            >
               {' '}
               Terms of Service{' '}
             </Link>

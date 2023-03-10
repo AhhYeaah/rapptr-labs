@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Logo } from '../Logo/Logo';
 import { NavbarButtonGroup } from './NavbarButtonGroup/NavbarButtonGroup';
@@ -18,7 +17,8 @@ export enum NavbarSizesInPixels {
 
 export function Navbar({ darkMode = false }: NavbarProps) {
   const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
-  const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
+  const [isUserScrollingDown, changeIsUserScrollingDown] =
+    useState(false);
 
   const oldOffset = useRef(window.scrollY);
 
@@ -36,7 +36,8 @@ export function Navbar({ darkMode = false }: NavbarProps) {
 
     document.addEventListener('scroll', handleScrollingEvent);
 
-    return () => document.removeEventListener('scroll', handleScrollingEvent);
+    return () =>
+      document.removeEventListener('scroll', handleScrollingEvent);
   }, []);
 
   function getNavBarHeight() {
@@ -54,12 +55,17 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   return (
     <header
       className="sticky z-30 grow-0 top-0"
-      style={{ height: NavbarSizesInPixels.OPEN, visibility: getNavBarHeight() === 0 ? 'hidden' : 'visible' }}
+      style={{
+        height: NavbarSizesInPixels.OPEN,
+        visibility: getNavBarHeight() === 0 ? 'hidden' : 'visible',
+      }}
     >
       <div
         className={
           'flex-center overflow-hidden transition-all duration-300 ' +
-          (darkMode ? 'bg-rapptr-black text-white ' : ' bg-white text-rapptr-black ') +
+          (darkMode
+            ? 'bg-rapptr-black text-white '
+            : ' bg-white text-rapptr-black ') +
           (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
           (isUserScrollingDown ? ' invisible' : ' visible ')
         }
@@ -78,13 +84,20 @@ export function Navbar({ darkMode = false }: NavbarProps) {
           </div>
 
           <nav>
-            <NavbarButtonGroup colorIfActive={true} className="items-center flex-row">
-              <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
+            <NavbarButtonGroup
+              colorIfActive={true}
+              className="items-center flex-row"
+            >
+              <NavbarButtonGroupLink to="/">
+                Home
+              </NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
-              <NavbarButtonGroupButton darkMode={darkMode}>Contact Us</NavbarButtonGroupButton>
+              <NavbarButtonGroupButton darkMode={darkMode}>
+                Contact Us
+              </NavbarButtonGroupButton>
             </NavbarButtonGroup>
           </nav>
         </div>

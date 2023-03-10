@@ -9,9 +9,17 @@ interface NavbarButtonGroupLinkProps {
   children: string;
 }
 
-export function NavbarButtonGroupLink({ children, to, colorIfActive, hasMargin = true }: NavbarButtonGroupLinkProps) {
+export function NavbarButtonGroupLink({
+  children,
+  to,
+  colorIfActive,
+  hasMargin = true,
+}: NavbarButtonGroupLinkProps) {
   return (
-    <li key={`NavbarButtonGroupLink - ${children}`} className={hasMargin ? 'mx-4' : ''}>
+    <li
+      key={`NavbarButtonGroupLink - ${children}`}
+      className={hasMargin ? 'mx-4' : ''}
+    >
       <NavLink
         to={to ?? '/' + children.toLowerCase()}
         className={({ isActive }) => {

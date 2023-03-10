@@ -1,4 +1,4 @@
-import React, { ReactNode, useId } from 'react';
+import React from 'react';
 
 interface ContactFormTextareaInputProps {
   name: string;
@@ -8,7 +8,10 @@ interface ContactFormTextareaInputProps {
   register: any;
 }
 
-export function ContactFormTextareaInput({ hasError, ...props }: ContactFormTextareaInputProps) {
+export function ContactFormTextareaInput({
+  hasError,
+  ...props
+}: ContactFormTextareaInputProps) {
   return (
     <div>
       <textarea

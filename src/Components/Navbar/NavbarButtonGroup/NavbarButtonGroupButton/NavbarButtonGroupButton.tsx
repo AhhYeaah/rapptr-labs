@@ -7,11 +7,17 @@ interface NavbarButtonGroupButtonProps {
   children: string;
 }
 
-export function NavbarButtonGroupButton({ darkMode, children }: NavbarButtonGroupButtonProps) {
+export function NavbarButtonGroupButton({
+  darkMode,
+  children,
+}: NavbarButtonGroupButtonProps) {
   const navigate = useNavigate();
 
   return (
-    <li key={`NavbarButtonGroupButton - ${children}`} className="ml-4 list-none	">
+    <li
+      key={`NavbarButtonGroupButton - ${children}`}
+      className="ml-4 list-none	"
+    >
       <LightModesButton
         darkMode={darkMode}
         onClick={() => {

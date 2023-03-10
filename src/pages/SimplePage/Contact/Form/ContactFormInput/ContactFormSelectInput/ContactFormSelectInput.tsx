@@ -1,6 +1,6 @@
-import { faAngleDown, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 export enum BussinessPhaseValues {
   IPH = 'IPH',
@@ -15,7 +15,10 @@ interface ContactFormSelectInput {
   hasError: boolean;
 }
 
-export function ContactFormSelectInput({ hasError, ...props }: ContactFormSelectInput) {
+export function ContactFormSelectInput({
+  hasError,
+  ...props
+}: ContactFormSelectInput) {
   const [pristine, changePristine] = useState(true);
 
   return (
@@ -37,7 +40,12 @@ export function ContactFormSelectInput({ hasError, ...props }: ContactFormSelect
         onChange={() => changePristine(false)}
         defaultValue={''}
       >
-        <option value="" label="Bussiness Phase" disabled hidden></option>
+        <option
+          value=""
+          label="Bussiness Phase"
+          disabled
+          hidden
+        ></option>
         <option className="text-black" value="IPH">
           Idea Phase Startup
         </option>

@@ -7,7 +7,10 @@ interface TextHeavyPagesProps {
   title: string;
 }
 
-export function TextHeavyPages({ title, children }: TextHeavyPagesProps) {
+export function TextHeavyPages({
+  title,
+  children,
+}: TextHeavyPagesProps) {
   document.title = 'Rapptr Labs - ' + title;
   window.scrollTo({ top: 0, behavior: 'smooth' });
   return (
@@ -16,7 +19,9 @@ export function TextHeavyPages({ title, children }: TextHeavyPagesProps) {
       <div className="max-w-screen-xl mx-10 my-20 text-div">
         <div className="mb-12">
           <h1 className="styled-title">{title}</h1>
-          <h2 className="text-center text-discreet">Last updated: March 13th, 2022</h2>
+          <h2 className="text-center text-discreet">
+            Last updated: March 13th, 2022
+          </h2>
         </div>
         {children}
       </div>

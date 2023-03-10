@@ -1,5 +1,5 @@
-import React, { HTMLInputTypeAttribute, ReactNode, useId } from 'react';
-import { FieldValues, RegisterOptions, UseFormRegister } from 'react-hook-form';
+import React, { HTMLInputTypeAttribute, useId } from 'react';
+import { RegisterOptions } from 'react-hook-form';
 import { capitalizeFirstLetter } from '../../../../../utils/Text';
 import { ContactFormPhoneInput } from './ContactFormPhoneInput/ContactFormPhoneInput';
 import { ContactFormSelectInput } from './ContactFormSelectInput/ContactFormSelectInput';
@@ -43,11 +43,15 @@ export function ContactFormInput({
       name,
       id,
       label,
+      'aria-invalid': !!errors[name],
       placeholder: placeholder ?? label,
       hasError: !!errors[name],
       register: phone
         ? control
-        : register(name, { ...options, required: required ? 'This field is required' : undefined }),
+        : register(name, {
+            ...options,
+            required: required ? 'This field is required' : undefined,
+          }),
     };
   }
 
@@ -58,10 +62,27 @@ export function ContactFormInput({
         {required && <span className="text-red-500">*</span>}
       </label>
       {(() => {
-        if (type === 'select') return <ContactFormSelectInput {...getGeneralInputInfo()} />;
-        if (type === 'tel') return <ContactFormPhoneInput {...getGeneralInputInfo(true)} control={control} />;
-        if (type === 'textarea') return <ContactFormTextareaInput {...getGeneralInputInfo()} />;
-        return <ContactFormTextInput {...getGeneralInputInfo()} type={type} />;
+        if (type === 'select')
+          return (
+            <ContactFormSelectInput {...getGeneralInputInfo()} />
+          );
+        if (type === 'tel')
+          return (
+            <ContactFormPhoneInput
+              {...getGeneralInputInfo(true)}
+              control={control}
+            />
+          );
+        if (type === 'textarea')
+          return (
+            <ContactFormTextareaInput {...getGeneralInputInfo()} />
+          );
+        return (
+          <ContactFormTextInput
+            {...getGeneralInputInfo()}
+            type={type}
+          />
+        );
       })()}
       {hasErrors && (
         <div className="text-red-500 text-sm">

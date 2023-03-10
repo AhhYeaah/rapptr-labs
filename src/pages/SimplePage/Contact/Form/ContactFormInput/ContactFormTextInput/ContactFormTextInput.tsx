@@ -1,5 +1,4 @@
-import React, { HTMLInputTypeAttribute, useId } from 'react';
-import { capitalizeFirstLetter } from '../../../../../../utils/Text';
+import React, { HTMLInputTypeAttribute } from 'react';
 
 interface ContactFormTextInput {
   id: string;
@@ -10,7 +9,10 @@ interface ContactFormTextInput {
   placeholder?: string;
 }
 
-export function ContactFormTextInput({ hasError = false, ...props }: ContactFormTextInput) {
+export function ContactFormTextInput({
+  hasError = false,
+  ...props
+}: ContactFormTextInput) {
   return (
     <div>
       <input

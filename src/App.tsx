@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
 import { HomePage } from './pages/SimplePage/Home/HomePage';
 import { PrivacyPolicyPage } from './pages/TextHeavyPages/PrivacyPolicy/PrivacyPolicyPage';
 import { SimplePage } from './pages/SimplePage/SimplePage';

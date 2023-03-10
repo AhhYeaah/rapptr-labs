@@ -1,11 +1,9 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Hexagon } from './Hexagon/Hexagon';
 import './ContactPageSucess.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowLeft,
-  faArrowRight,
-  faCheck,
   faCheckToSlot,
   faShuttleSpace,
 } from '@fortawesome/free-solid-svg-icons';

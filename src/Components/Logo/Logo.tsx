@@ -11,6 +11,7 @@ interface LogoProps {
 export function Logo({ classNames, darkMode = false }: LogoProps) {
   return (
     <img
+      draggable={false}
       src={darkMode ? lightLogoUrl : darkLogoUrl}
       alt="Rapptr Labs Logo"
       className={classNames ? classNames : 'h-14'}

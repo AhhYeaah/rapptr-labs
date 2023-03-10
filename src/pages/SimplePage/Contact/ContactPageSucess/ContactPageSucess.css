@@ -1,9 +1,4 @@
+/* Removing scroll when success component appears */
 body:has(.ContactPageSucess) {
   overflow-y: hidden;
-}
-
-@keyframes fly {
-  0% {
-    transform: translateY(50%);
-  }
 }

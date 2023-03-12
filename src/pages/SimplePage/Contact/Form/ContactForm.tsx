@@ -3,17 +3,16 @@ import { useForm } from 'react-hook-form';
 import { Button } from '../../../../Components/Button/Button';
 import { ContactPageSucess } from '../ContactPageSucess/ContactPageSucess';
 import { ContactFormInput } from './ContactFormInput/ContactFormInput';
-import { BussinessPhaseValues } from './ContactFormInput/ContactFormSelectInput/ContactFormSelectInput';
 
-interface FormInput {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  company: string;
-  bussinessPhase: BussinessPhaseValues;
-  message: string;
-}
+// interface FormInput {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   phone: string;
+//   company: string;
+//   bussinessPhase: BussinessPhaseValues;
+//   message: string;
+// }
 
 export function ContactForm() {
   const [completed, complete] = useState(false);

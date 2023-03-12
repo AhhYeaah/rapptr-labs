@@ -1,0 +1,17 @@
+/* div:has(.carrousel-image[aria-expanded='true'], .carrousel-image:hover)
+  .carrousel-image:not(.carrousel-image:hover, .carrousel-image[aria-expanded='true']) {
+  @apply brightness-110;
+} */
+
+.carrousel-image:hover:not(.carrousel-image[aria-expanded='true']) {
+  @apply brightness-75;
+}
+
+div:has(.carrousel-image[aria-expanded='true'])
+  .carrousel-image:not(.carrousel-image[aria-expanded='true']) {
+  @apply brightness-75;
+}
+
+.carrousel-image:hover[aria-expanded='true'] {
+  @apply brightness-110;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button } from '../../../../Components/Button/Button';
+import { DarkButton } from '../../../../Components/Button/DarkButton';
 import { ContactPageSucess } from '../ContactPageSucess/ContactPageSucess';
 import { ContactFormInput } from './ContactFormInput/ContactFormInput';
 
@@ -118,9 +118,7 @@ export function ContactForm() {
           />
         </div>
         <div className="text-left">
-          <Button className="bg-[#053148] text-white enabled:hover:bg-[#3D5F79] enabled:hover:scale-105 transition-all rounded-lg w-44">
-            Submit
-          </Button>
+          <DarkButton className="w-44">Submit</DarkButton>
         </div>
       </form>
       {completed && <ContactPageSucess></ContactPageSucess>}

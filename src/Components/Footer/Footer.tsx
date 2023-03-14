@@ -1,22 +1,17 @@
 import React from 'react';
 
-import {
-  faLinkedin,
-  faSquareFacebook,
-  faSquareTwitter,
-} from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { LightModesButton } from '../Button/LightModesButton';
 import { Logo } from '../Logo/Logo';
 import { NavbarButtonGroup } from '../Navbar/NavbarButtonGroup/NavbarButtonGroup';
 import { NavbarButtonGroupLink } from '../Navbar/NavbarButtonGroup/NavbarButtonGroupLink/NavbarButtonGroupLink';
-import { SocialIcon } from './SocialIcon/SocialIcon';
+import { SocialIconsRow } from '../SocialIconsRow/SocialIconsRow';
 
 export function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-rapptr-black text-white grow-0 px-4 flex-center flex-col h-auto lg:h-96 snap-end">
+    <footer className="bg-rapptr-black text-white px-4 grow-0 flex-center flex-col h-auto lg:h-96 snap-end">
       <div className="py-14 w-auto lg:py-0 lg:w-full lg:max-w-screen-lg">
         <div className="w-auto grid grid-rows-3 grid-cols-1 gap-10 lg:w-full  lg:grid-rows-1 lg:grid-cols-10 lg:gap-0">
           <div className="flex-center lg:col-span-2 lg:block">
@@ -42,7 +37,7 @@ export function Footer() {
               hasMargin={false}
               className="flex-col"
             >
-              <NavbarButtonGroupLink to="">App Design</NavbarButtonGroupLink>
+              <NavbarButtonGroupLink>App Design</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>App Development</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Android App Development</NavbarButtonGroupLink>
             </NavbarButtonGroup>
@@ -58,7 +53,7 @@ export function Footer() {
                 </p>
               </address>
             </div>
-            <div className="flex flex-col-reverse lg:flex-col">
+            <div className="flex flex-col-reverse lg:flex-col items-center lg:items-start">
               <LightModesButton
                 onClick={() => {
                   navigate('/contact-us');
@@ -70,24 +65,11 @@ export function Footer() {
               >
                 Contact Us
               </LightModesButton>
-              <div className="text-white mb-6 lg:mb-6 lg:mt-4">
-                <SocialIcon
-                  icon={faLinkedin}
-                  to="https://www.linkedin.com/company/rapptr"
-                ></SocialIcon>
-                <SocialIcon
-                  icon={faSquareFacebook}
-                  to="https://www.facebook.com/rapptrlabs"
-                ></SocialIcon>
-                <SocialIcon
-                  icon={faSquareTwitter}
-                  to="https://twitter.com/rapptrlabs"
-                ></SocialIcon>
-              </div>
+              <SocialIconsRow className="text-white mb-6 lg:mb-0 lg:mt-4"></SocialIconsRow>
             </div>
           </div>
         </div>
-        <div className="mt-8  ">
+        <div className="mt-8">
           <span className="text-discreet text-sm">
             © 2023 Rapptr Labs. All Rights Reserved |
             <Link

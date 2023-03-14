@@ -1,12 +1,6 @@
 import React from 'react';
+import { SocialIconsRow } from '../../../Components/SocialIconsRow/SocialIconsRow';
 
-import {
-  faLinkedin,
-  faSquareFacebook,
-  faSquareTwitter,
-} from '@fortawesome/free-brands-svg-icons';
-
-import { SocialIcon } from '../../../Components/Footer/SocialIcon/SocialIcon';
 import { PageTitle } from '../../PageTitle/PageTitle';
 import { ContactForm } from './Form/ContactForm';
 
@@ -44,20 +38,7 @@ export function ContactPage() {
               <a href="tel:(212) 913 9626">(212) 913 9626</a>
             </p>
           </address>
-          <div className="text-[#26a6ed] mb-6 lg:mt-4">
-            <SocialIcon
-              icon={faLinkedin}
-              to="https://www.linkedin.com/company/rapptr"
-            ></SocialIcon>
-            <SocialIcon
-              icon={faSquareFacebook}
-              to="https://www.facebook.com/rapptrlabs"
-            ></SocialIcon>
-            <SocialIcon
-              icon={faSquareTwitter}
-              to="https://twitter.com/rapptrlabs"
-            ></SocialIcon>
-          </div>
+          <SocialIconsRow className="text-[#26a6ed]"></SocialIconsRow>
         </div>
       </div>
     </div>

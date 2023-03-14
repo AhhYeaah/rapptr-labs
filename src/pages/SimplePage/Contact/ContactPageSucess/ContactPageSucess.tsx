@@ -7,8 +7,8 @@ import {
   faCheckToSlot,
   faShuttleSpace,
 } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '../../../../Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { DarkButton } from '../../../../Components/Button/DarkButton';
 
 export function ContactPageSucess() {
   const backdrop = useRef<HTMLDivElement>(null);
@@ -78,10 +78,7 @@ export function ContactPageSucess() {
       ],
       {
         duration: shakeDuration,
-        delay:
-          backdropTimeDuration +
-          breathingTime +
-          hexagonAppearenceTimeDuration,
+        delay: backdropTimeDuration + breathingTime + hexagonAppearenceTimeDuration,
         fill: 'forwards',
       }
     );
@@ -220,20 +217,18 @@ export function ContactPageSucess() {
           Thank you for reaching out!
         </h1>
         <p className=" text-xl lg:text-3xl ">
-          Our team will review and respond to your message within 24
-          hours. <br />
-          We appreciate your patience and look foward to connecting
-          with you soon! 👋
+          Our team will review and respond to your message within 24 hours. <br />
+          We appreciate your patience and look foward to connecting with you soon! 👋
         </p>
-        <Button
-          className="flex flex-center bg-color mx-auto mt-5 bg-[#0e303d] hover:bg-rapptr-blue rounded-lg transition-colors  duration-300"
+        <DarkButton
           onClick={() => {
             navigate('/');
           }}
+          className="duration-300 mt-5"
         >
           <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
           <span className="pl-2">Go back to home</span>
-        </Button>
+        </DarkButton>
       </div>
     </div>
   );

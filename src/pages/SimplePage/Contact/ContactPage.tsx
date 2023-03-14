@@ -23,14 +23,11 @@ export function ContactPage() {
       >
         <div className="lg:col-span-4">
           <div className="mb-10">
-            <h1 className="text-3xl font-bold mb-3">
-              Let&apos;s Talk
-            </h1>
+            <h1 className="text-3xl font-bold mb-3">Let&apos;s Talk</h1>
             <p className="font-light text-xl ">
-              From high-growth startups to enterprise brands, we help
-              companies of all sizes launch digital products that
-              drive user engagement. We&apos;d love to discuss how we
-              can help you!
+              From high-growth startups to enterprise brands, we help companies of all
+              sizes launch digital products that drive user engagement. We&apos;d love to
+              discuss how we can help you!
             </p>
           </div>
 

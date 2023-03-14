@@ -6,7 +6,7 @@ interface CarrouselProps {
 }
 
 export function Carrousel({ children }: CarrouselProps) {
-  const [scrollPercentage, changeScrollPercentage] = useState(0);
+  const [scrollPercentage, changeScrollPercentage] = useState(50);
   const [isMouseDown, changeIsMouseDown] = useState(false);
 
   const mousePosition = useRef(0);
@@ -22,6 +22,7 @@ export function Carrousel({ children }: CarrouselProps) {
 
     document.body.addEventListener('mouseup', handleMouseRelease);
     document.body.addEventListener('mouseleave', handleMouseRelease);
+    changeScrollPercentage(0);
 
     //preventing memory leak.
     return () => {
@@ -60,7 +61,9 @@ export function Carrousel({ children }: CarrouselProps) {
     >
       <div
         draggable={false}
-        className="relative left-[50vw] h-full inline-flex gap-5 transition-transform duration-[1200ms] ease-out"
+        className={
+          'relative left-[50vw] h-full inline-flex gap-5 transition-transform duration-[1200ms] ease-out'
+        }
         style={{ transform: 'translateX(' + -scrollPercentage + '%)' }}
       >
         <CarrouselPositionPercentageContext.Provider value={scrollPercentage}>

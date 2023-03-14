@@ -17,6 +17,22 @@ p > a {
 }
 
 /* User selected text is now a better blue */
-::selection {
+body[dark='false'] ::selection {
   background-color: #cbeafb;
+}
+
+body[dark='true'] ::selection {
+  background-color: #2b8baa;
+}
+
+body[dark='false'] {
+  background-color: #fff;
+}
+
+body[dark='true'] {
+  background-color: #000;
+}
+
+html:has(main > div.snappable-page) {
+  scroll-snap-type: y mandatory;
 }

@@ -16,10 +16,15 @@ export enum NavbarSizesInPixels {
   OPEN = 102,
 }
 
+function changeBodyDarkProperty(darkMode: boolean) {
+  document.body.setAttribute('dark', String(darkMode));
+}
+
 export function Navbar({ darkMode = false }: NavbarProps) {
   const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
-  const [isUserScrollingDown, changeIsUserScrollingDown] =
-    useState(false);
+  const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
+
+  changeBodyDarkProperty(darkMode);
 
   const oldOffset = useRef(window.scrollY);
 
@@ -37,8 +42,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
 
     document.addEventListener('scroll', handleScrollingEvent);
 
-    return () =>
-      document.removeEventListener('scroll', handleScrollingEvent);
+    return () => document.removeEventListener('scroll', handleScrollingEvent);
   }, []);
 
   function getNavBarHeight() {
@@ -64,9 +68,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
       <div
         className={
           'flex-center overflow-hidden transition-all duration-300 ' +
-          (darkMode
-            ? 'bg-rapptr-black text-white '
-            : ' bg-white text-rapptr-black ') +
+          (darkMode ? ' text-white bg-rapptr-black ' : ' text-rapptr-black bg-white  ') +
           (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
           (isUserScrollingDown ? ' invisible' : ' visible ')
         }
@@ -80,13 +82,8 @@ export function Navbar({ darkMode = false }: NavbarProps) {
           </div>
 
           <nav>
-            <NavbarButtonGroup
-              colorIfActive={true}
-              className="items-center flex-row"
-            >
-              <NavbarButtonGroupLink to="/">
-                Home
-              </NavbarButtonGroupLink>
+            <NavbarButtonGroup colorIfActive={true} className="items-center flex-row">
+              <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
               <NavbarButtonGroupLink>About</NavbarButtonGroupLink>

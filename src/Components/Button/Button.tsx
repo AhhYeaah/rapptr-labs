@@ -8,12 +8,7 @@ interface ButtonProps {
   children?: ReactNode[] | ReactNode;
 }
 
-export function Button({
-  className,
-  children,
-  onClick,
-  disabled = false,
-}: ButtonProps) {
+export function Button({ className, children, onClick, disabled = false }: ButtonProps) {
   return (
     <button
       onClick={onClick}

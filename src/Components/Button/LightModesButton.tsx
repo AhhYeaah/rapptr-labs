@@ -21,9 +21,7 @@ export function LightModesButton({
       disabled={disabled}
       className={
         ' border rounded-md transition-all ' +
-        (darkMode
-          ? ' border-white bg-rapptr-black '
-          : ' border-rapptr-black bg-white ') +
+        (darkMode ? ' border-white bg-rapptr-black ' : ' border-rapptr-black bg-white ') +
         className
       }
       onClick={onClick}

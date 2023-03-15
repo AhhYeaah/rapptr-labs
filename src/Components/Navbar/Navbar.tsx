@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { LightModesButton } from '../Button/LightModesButton';
 
 import { Logo } from '../Logo/Logo';
-import { NavbarButtonGroup } from './NavbarButtonGroup/NavbarButtonGroup';
-import { NavbarButtonGroupButton } from './NavbarButtonGroup/NavbarButtonGroupButton/NavbarButtonGroupButton';
-import { NavbarButtonGroupLink } from './NavbarButtonGroup/NavbarButtonGroupLink/NavbarButtonGroupLink';
+import { NavLink } from './NavLinkGroup/NavLink/NavLink';
+import { NavLinkGroup } from './NavLinkGroup/NavLinkGroup';
 
 interface NavbarProps {
   darkMode?: boolean;
@@ -23,6 +23,7 @@ function changeBodyDarkProperty(darkMode: boolean) {
 export function Navbar({ darkMode = false }: NavbarProps) {
   const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
   const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
+  const navigate = useNavigate();
 
   changeBodyDarkProperty(darkMode);
 
@@ -75,24 +76,26 @@ export function Navbar({ darkMode = false }: NavbarProps) {
         style={{ height: getNavBarHeight() }}
       >
         <div className="w-full max-w-screen-lg p-4 mx-4 flex-between">
-          <div>
-            <Link to={'/'} className="cursor-pointer">
-              <Logo darkMode={darkMode} classNames="h-14" />
-            </Link>
-          </div>
+          <Link to={'/'} className="cursor-pointer">
+            <Logo darkMode={darkMode} classNames="h-14" />
+          </Link>
 
-          <nav>
-            <NavbarButtonGroup colorIfActive={true} className="items-center flex-row">
-              <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
-              <NavbarButtonGroupButton darkMode={darkMode}>
-                Contact Us
-              </NavbarButtonGroupButton>
-            </NavbarButtonGroup>
-          </nav>
+          <NavLinkGroup className="gap-8 flex-center" activeHighliting={true}>
+            <NavLink to={'/'}>Home</NavLink>
+            <NavLink>Work</NavLink>
+            <NavLink>Approach</NavLink>
+            <NavLink>About</NavLink>
+            <NavLink>Jobs</NavLink>
+            <LightModesButton
+              onClick={() => {
+                navigate('/contact-us');
+              }}
+              className="hover:scale-110"
+              darkMode={darkMode}
+            >
+              Contact us
+            </LightModesButton>
+          </NavLinkGroup>
         </div>
       </div>
     </header>

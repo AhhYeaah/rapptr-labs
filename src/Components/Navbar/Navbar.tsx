@@ -72,8 +72,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
     >
       <div
         className={
-          'flex-center overflow-hidden transition-all duration-300 ' +
-          (darkMode ? ' bg-rapptr-black ' : ' bg-white  ') +
+          'flex-center overflow-hidden transition-all duration-300 bg-white dark:bg-rapptr-black ' +
           (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
           (isUserScrollingDown ? ' invisible' : ' visible ')
         }

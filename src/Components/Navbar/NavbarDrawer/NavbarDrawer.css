@@ -9,10 +9,14 @@
   }
 }
 
+.navbarDrawer :not([aria-expanded]) {
+  @apply bg-transparent;
+}
+
 .navbarDrawer[aria-expanded='true'] {
-  @apply absolute top-0 left-0 w-screen h-screen -z-10 transition-all duration-300 overflow-hidden;
+  @apply absolute max-w-full top-0 left-0 w-screen h-screen -z-10 transition-all duration-300 overflow-hidden dark:bg-rapptr-black bg-white;
 }
 
 .navbarDrawer[aria-expanded='false'] {
-  @apply absolute invisible top-0 left-0 h-0 w-screen overflow-hidden -z-10 transition-all duration-300;
+  @apply invisible absolute max-w-full top-0 left-0 w-screen h-0 -z-10 transition-all duration-300  overflow-hidden dark:bg-rapptr-black bg-white;
 }

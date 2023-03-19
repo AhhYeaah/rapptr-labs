@@ -19,19 +19,19 @@ p > a {
 }
 
 /* User selected text is now a better blue */
-body[dark='false'] ::selection {
+html ::selection {
   background-color: #cbeafb;
 }
 
-body[dark='true'] ::selection {
+html.dark ::selection {
   background-color: #2b8baa;
 }
 
-body[dark='false'] {
+html {
   background-color: #fff;
 }
 
-body[dark='true'] {
+html.dark {
   background-color: #000;
 }
 

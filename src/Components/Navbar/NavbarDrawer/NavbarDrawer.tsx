@@ -31,10 +31,7 @@ export function NavbarDrawer({ darkMode }: { darkMode: boolean }) {
   return (
     <>
       <div
-        className={
-          'flex items-end mt-1 lg:hidden ' +
-          (darkMode ? 'text-white' : 'text-rapptr-black')
-        }
+        className={'flex items-end mt-1 lg:hidden dark:text-white text-rapptr-black'}
         ref={button}
       >
         <button onClick={() => openDrawer(!isDrawerOpen)}>
@@ -43,14 +40,11 @@ export function NavbarDrawer({ darkMode }: { darkMode: boolean }) {
       </div>
       <div
         aria-expanded={canDrawerBeOpenned ? drawerState : null}
-        className={
-          'navbarDrawer flex-center ' + (darkMode ? 'bg-rapptr-black' : 'bg-white')
-        }
+        className={'navbarDrawer flex-center'}
       >
         <NavLinkGroup
           className={
-            'lg:visible lg:gap-8 flex-col gap-8 lg:flex-row flex-center ' +
-            (darkMode ? ' text-white ' : ' text-rapptr-black ') +
+            'lg:visible lg:gap-8 flex-col gap-8 lg:flex-row flex-center dark:text-white text-rapptr-black' +
             (drawerState ? 'flex-row' : '')
           }
           activeHighliting={true}

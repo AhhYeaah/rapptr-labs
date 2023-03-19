@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { LightModesButton } from '../Button/LightModesButton';
+import { Link } from 'react-router-dom';
 
 import { Logo } from '../Logo/Logo';
-import { NavLink } from './NavLinkGroup/NavLink/NavLink';
-import { NavLinkGroup } from './NavLinkGroup/NavLinkGroup';
+import { NavbarDrawer } from './NavbarDrawer/NavbarDrawer';
 
 interface NavbarProps {
   darkMode?: boolean;
@@ -16,6 +14,9 @@ export enum NavbarSizesInPixels {
   OPEN = 102,
 }
 
+const TOP_OF_DOCUMENT_THRESHOLD = 200;
+const GRAY_AREA_THRESHOLD = 400;
+
 function changeBodyDarkProperty(darkMode: boolean) {
   document.body.setAttribute('dark', String(darkMode));
 }
@@ -23,7 +24,6 @@ function changeBodyDarkProperty(darkMode: boolean) {
 export function Navbar({ darkMode = false }: NavbarProps) {
   const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
   const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
-  const navigate = useNavigate();
 
   changeBodyDarkProperty(darkMode);
 
@@ -33,9 +33,9 @@ export function Navbar({ darkMode = false }: NavbarProps) {
   useEffect(() => {
     function handleScrollingEvent() {
       const isGoingDown = oldOffset.current - window.scrollY < 0;
-      const grayArea = window.scrollY < 400;
+      const grayArea = window.scrollY < GRAY_AREA_THRESHOLD;
 
-      changeIsOnTopOfDocument(window.scrollY < 200);
+      changeIsOnTopOfDocument(window.scrollY < TOP_OF_DOCUMENT_THRESHOLD);
       changeIsUserScrollingDown(grayArea ? false : isGoingDown);
 
       oldOffset.current = window.scrollY;
@@ -69,7 +69,7 @@ export function Navbar({ darkMode = false }: NavbarProps) {
       <div
         className={
           'flex-center overflow-hidden transition-all duration-300 ' +
-          (darkMode ? ' text-white bg-rapptr-black ' : ' text-rapptr-black bg-white  ') +
+          (darkMode ? ' bg-rapptr-black ' : ' bg-white  ') +
           (isOnTopOfDocument ? ' ' : ' shadow-lg ') +
           (isUserScrollingDown ? ' invisible' : ' visible ')
         }
@@ -77,25 +77,9 @@ export function Navbar({ darkMode = false }: NavbarProps) {
       >
         <div className="w-full max-w-screen-lg p-4 mx-4 flex-between">
           <Link to={'/'} className="cursor-pointer">
-            <Logo darkMode={darkMode} classNames="h-14" />
+            <Logo darkMode={darkMode} className="lg:h-14 h-12" />
           </Link>
-
-          <NavLinkGroup className="gap-8 flex-center" activeHighliting={true}>
-            <NavLink to={'/'}>Home</NavLink>
-            <NavLink>Work</NavLink>
-            <NavLink>Approach</NavLink>
-            <NavLink>About</NavLink>
-            <NavLink>Jobs</NavLink>
-            <LightModesButton
-              onClick={() => {
-                navigate('/contact-us');
-              }}
-              className="hover:scale-110"
-              darkMode={darkMode}
-            >
-              Contact us
-            </LightModesButton>
-          </NavLinkGroup>
+          <NavbarDrawer darkMode={darkMode} />
         </div>
       </div>
     </header>

@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 /* Utility */
-.flex-center {
-  @apply flex justify-center items-center;
-}
 
-.flex-between {
-  @apply flex justify-between items-center;
-}
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
 
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
 /* All links inside paragraphs are now collorfull */
 p > a {
   color: #3ec7f4;

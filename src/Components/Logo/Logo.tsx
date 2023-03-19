@@ -4,17 +4,17 @@ import lightLogoUrl from '../../assets/svg/white-logo.svg';
 import darkLogoUrl from '../../assets/svg/logo.svg';
 
 interface LogoProps {
-  classNames?: string;
+  className?: string;
   darkMode?: boolean;
 }
 
-export function Logo({ classNames, darkMode = false }: LogoProps) {
+export function Logo({ className, darkMode = false }: LogoProps) {
   return (
     <img
       draggable={false}
       src={darkMode ? lightLogoUrl : darkLogoUrl}
       alt="Rapptr Labs Logo"
-      className={classNames ? classNames : 'h-14'}
+      className={className ? className : 'h-14'}
     />
   );
 }

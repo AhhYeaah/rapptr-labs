@@ -14,9 +14,6 @@ import { ContactPage } from './pages/SimplePage/Contact/ContactPage';
 import { HomePage } from './pages/SimplePage/Home/HomePage';
 import { SimplePage } from './pages/SimplePage/SimplePage';
 import { WorkPage } from './pages/SimplePage/Work/WorkPage';
-// import { PrivacyPolicyPage } from './pages/TextHeavyPages/PrivacyPolicy/PrivacyPolicyPage';
-// import { TermsOfService } from './pages/TextHeavyPages/TermsOfService/TermsOfService';
-// import { TextHeavyPages } from './pages/TextHeavyPages/TextHeavyPages';
 
 export function App() {
   const router = createBrowserRouter([

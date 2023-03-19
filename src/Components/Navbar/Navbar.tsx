@@ -17,15 +17,19 @@ export enum NavbarSizesInPixels {
 const TOP_OF_DOCUMENT_THRESHOLD = 200;
 const GRAY_AREA_THRESHOLD = 400;
 
-function changeBodyDarkProperty(darkMode: boolean) {
-  document.body.setAttribute('dark', String(darkMode));
+function changeHTMLDarkClass(darkMode: boolean) {
+  if (darkMode) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
 }
 
 export function Navbar({ darkMode = false }: NavbarProps) {
   const [isOnTopOfDocument, changeIsOnTopOfDocument] = useState(true);
   const [isUserScrollingDown, changeIsUserScrollingDown] = useState(false);
 
-  changeBodyDarkProperty(darkMode);
+  changeHTMLDarkClass(darkMode);
 
   const oldOffset = useRef(window.scrollY);
 

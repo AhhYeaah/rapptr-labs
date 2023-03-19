@@ -1,48 +1,47 @@
 import React from 'react';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LightModesButton } from '../Button/LightModesButton';
 import { Logo } from '../Logo/Logo';
-import { NavbarButtonGroup } from '../Navbar/NavbarButtonGroup/NavbarButtonGroup';
-import { NavbarButtonGroupLink } from '../Navbar/NavbarButtonGroup/NavbarButtonGroupLink/NavbarButtonGroupLink';
+import { NavLink } from '../Navbar/NavLinkGroup/NavLink/NavLink';
+import { NavLinkGroup } from '../Navbar/NavLinkGroup/NavLinkGroup';
 import { SocialIconsRow } from '../SocialIconsRow/SocialIconsRow';
+import { CopyrightWarning } from './CopyrightWarning/CopyrightWarning';
+import { FooterSection } from './FooterSection/FooterSection';
 
 export function Footer() {
   const navigate = useNavigate();
 
   return (
     <footer className="bg-rapptr-black text-white px-4 grow-0 flex-center flex-col h-auto lg:h-96 snap-end">
-      <div className="py-14 w-auto lg:py-0 lg:w-full lg:max-w-screen-lg">
-        <div className="w-auto grid grid-rows-3 grid-cols-1 gap-10 lg:w-full  lg:grid-rows-1 lg:grid-cols-10 lg:gap-0">
-          <div className="flex-center lg:col-span-2 lg:block">
-            <Logo darkMode={true} classNames="h-24 lg:h-14"></Logo>
-          </div>
-          <nav className="font-bold h-auto text-center lg:text-left lg:col-span-2 ">
-            <NavbarButtonGroup
-              colorIfActive={false}
-              hasMargin={false}
-              className="flex-col"
-            >
-              <NavbarButtonGroupLink to="/">Home</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Work</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Approach</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>About</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Jobs</NavbarButtonGroupLink>
-            </NavbarButtonGroup>
-          </nav>
-          <nav className="text-center lg:text-left lg:col-span-3">
-            <h2 className="font-bold mb-2 text-lg">Services</h2>
-            <NavbarButtonGroup
-              colorIfActive={false}
-              hasMargin={false}
-              className="flex-col"
-            >
-              <NavbarButtonGroupLink>App Design</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>App Development</NavbarButtonGroupLink>
-              <NavbarButtonGroupLink>Android App Development</NavbarButtonGroupLink>
-            </NavbarButtonGroup>
-          </nav>
-          <div className="text-center lg:text-left lg:col-span-3">
+      <div className="py-14 lg:py-0 lg:w-full lg:max-w-screen-lg">
+        <div className="grid gap-10 lg:w-full lg:grid-rows-1 lg:grid-cols-10 lg:gap-0">
+          <FooterSection className="lg:col-span-2">
+            <div className="flex-center lg:block">
+              <Logo darkMode={true} className="h-24 lg:h-14"></Logo>
+            </div>
+          </FooterSection>
+
+          <FooterSection className="lg:col-span-2">
+            <NavLinkGroup className="flex-col font-bold" activeHighliting={false}>
+              <NavLink to={'/'}>Home</NavLink>
+              <NavLink>Work</NavLink>
+              <NavLink>Approach</NavLink>
+              <NavLink>About</NavLink>
+              <NavLink>Jobs</NavLink>
+            </NavLinkGroup>
+          </FooterSection>
+
+          <FooterSection className="lg:col-span-3">
+            <NavLinkGroup className="flex-col" activeHighliting={false}>
+              <h2 className="font-bold mb-2 text-lg">Services</h2>
+              <NavLink>App Design</NavLink>
+              <NavLink>App Development</NavLink>
+              <NavLink>Android App Development</NavLink>
+            </NavLinkGroup>
+          </FooterSection>
+
+          <FooterSection className="lg:col-span-3">
             <div>
               <h2 className="mb-2 text-rapptr-blue text-lg">Rapptr Labs</h2>
               <address className="mb-3 not-italic	 ">
@@ -67,27 +66,12 @@ export function Footer() {
               </LightModesButton>
               <SocialIconsRow className="text-white mb-6 lg:mb-0 lg:mt-4"></SocialIconsRow>
             </div>
-          </div>
+          </FooterSection>
         </div>
         <div className="mt-8">
-          <span className="text-discreet text-sm">
-            © 2023 Rapptr Labs. All Rights Reserved |
-            <Link
-              className="hover:text-rapptr-blue focus-visible:text-rapptr-blue"
-              to="/policy"
-            >
-              {' '}
-              Privacy Policy{' '}
-            </Link>
-            |
-            <Link
-              className="hover:text-rapptr-blue focus-visible:text-rapptr-blue"
-              to="/tos"
-            >
-              {' '}
-              Terms of Service{' '}
-            </Link>
-          </span>
+          <FooterSection className="lg:col-span-1">
+            <CopyrightWarning />
+          </FooterSection>
         </div>
       </div>
     </footer>
